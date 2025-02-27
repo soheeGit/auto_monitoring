@@ -81,7 +81,7 @@ class Monitoring {
 
     // 1. 검색어를 통해서 최근 1개의 뉴스를 받아올게요
     public void getNews(String keyword, int display, int start, SortType sort, String llmResult) {
-        String token = System.getenv("GITHUB_TOKEN");
+        String token = System.getenv("GH_TOKEN");
         String OWNER = "soheeGit";
         String REPO = "auto_monitoring";
         String imageLink = "";

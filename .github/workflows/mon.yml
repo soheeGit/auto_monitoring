@@ -29,7 +29,7 @@ jobs:
               TOGETHER_URL: ${{ secrets.TOGETHER_URL }}
               TOGETHER_API_KEY: ${{ secrets.TOGETHER_API_KEY }}
               TOGETHER_MODEL: ${{ secrets.TOGETHER_MODEL }}
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              GH_TOKEN: ${{ secrets.GH_TOKEN }}
               
         
           - name: 실행 결과로 나온 파일을 커밋
