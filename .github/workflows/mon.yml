@@ -23,9 +23,13 @@ jobs:
               javac App.java
               java App
             env:
-              KEYWORD: ${{ vars.KEYWORD }}
+              LLM_PROMPT: ${{ vars.LLM_PROMPT }}
               NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
               NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+              TOGETHER_URL: ${{ secrets.TOGETHER_URL }}
+              TOGETHER_API_KEY: ${{ secrets.TOGETHER_API_KEY }}
+              TOGETHER_MODEL: ${{ secrets.TOGETHER_MODEL }}
+              
         
           - name: 실행 결과로 나온 파일을 커밋
             uses: EndBug/add-and-commit@v9
