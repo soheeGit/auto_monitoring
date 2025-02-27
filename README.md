@@ -12,7 +12,7 @@
 - 🛠️ **로그를 통해 수집 과정 확인**
 
 ## 🔧 기술 스택
-- **언어:** Java 11+
+- **언어:** Java 17
 - **HTTP 통신:** `java.net.http.HttpClient`
 - **파일 처리:** `java.io.FileWriter`
 - **로깅:** `java.util.logging.Logger`
