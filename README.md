@@ -9,8 +9,10 @@
 - 📰 **영화 리뷰 뉴스 저장**
 - 🖼️ **관련 이미지 다운로드**
 - 📂 **파일로 뉴스 제목 저장**
-- 🛠️ **로그를 통해 수집 과정 확인**
-
+- 🔄 **매일 자동으로 실행하여 최신 뉴스 업데이트**
+- 🔍 **추천 영화의 기사제목과 이미지 미리보기 제공**
+- 💾 **깃허브 issues에 자동저장**
+  
 ## 🔧 기술 스택
 - **언어:** Java 17
 - **HTTP 통신:** `java.net.http.HttpClient`
@@ -21,13 +23,13 @@
 ## 📂 프로젝트 구조
 ```bash
 auto_monitoring/
-├── src/
-│   ├── App.java          # 메인 실행 파일
-│   ├── Monitoring.java   # 뉴스 데이터 처리 클래스
-│   ├── SortType.java     # 정렬 타입 enum
-├── .env                  # API 키 설정 파일 (예: NAVER_CLIENT_ID, NAVER_CLIENT_SECRET)
-├── README.md             # 프로젝트 설명
-└── output/               # 저장된 뉴스 및 이미지 파일
+│   ├── .github/workflows
+│        ├── mol.yml
+├── App.java          # 메인 실행 파일
+├── Monitoring.java   # 뉴스 데이터 처리 클래스
+├── SortType.java     # 정렬 타입 enum
+├── README.md         # 프로젝트 설명
+└── file/             # 저장된 뉴스 및 이미지 파일
 ```
 
 ## 🔑 API 키 설정
@@ -37,6 +39,9 @@ auto_monitoring/
 ```bash
 NAVER_CLIENT_ID=여기에_클라이언트_ID_입력
 NAVER_CLIENT_SECRET=여기에_클라이언트_시크릿_입력
+TOGETHER_URL=여기에_Together_API_URL_입력
+TOGETHER_API_KEY=여기에_Together_API_KEY_입력
+TOGETHER_MODEL=여기에_Together_API_MODEL_입력
 ```
 
 ## 🏃‍♂️ 실행 방법
