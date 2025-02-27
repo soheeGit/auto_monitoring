@@ -24,7 +24,7 @@
 ```bash
 auto_monitoring/
 │   ├── .github/workflows
-│        ├── mol.yml
+│        ├── mon.yml
 ├── App.java          # 메인 실행 파일
 ├── Monitoring.java   # 뉴스 데이터 처리 클래스
 ├── SortType.java     # 정렬 타입 enum
