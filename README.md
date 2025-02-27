@@ -61,3 +61,6 @@ TOGETHER_MODEL=여기에_Together_API_MODEL_입력
 - **최신 개봉 영화 소식 자동 저장**
 - **영화 리뷰 및 평점 관련 뉴스 모니터링**
 - **주요 영화 관련 이미지 다운로드 및 정리**
+
+<img width="874" alt="스크린샷 2025-02-27 오후 11 05 51" src="https://github.com/user-attachments/assets/d133f24b-0718-42c6-8d72-534206c17d4b" />
+
