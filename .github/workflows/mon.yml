@@ -26,9 +26,8 @@ jobs:
               LLM_PROMPT: ${{ vars.LLM_PROMPT }}
               NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
               NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
-              TOGETHER_URL: ${{ secrets.TOGETHER_URL }}
-              TOGETHER_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-              TOGETHER_MODEL: ${{ secrets.GEMINI_MODEL }}
+              GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+              GEMINI_MODEL: ${{ secrets.GEMINI_MODEL }}
               GH_TOKEN: ${{ secrets.GH_TOKEN }}
               
         
