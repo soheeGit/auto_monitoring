@@ -18,8 +18,8 @@ public class App {
         String prompt = System.getenv("LLM_PROMPT");
         String llmResult = useLLM(prompt);
         System.out.println(llmResult);
-        //String encodedKeyword = URLEncoder.encode(llmResult, StandardCharsets.UTF_8);
-        monitoring.getNews(llmResult, 1, 1, SortType.sim, llmResult);
+        String encodedKeyword = URLEncoder.encode(llmResult, StandardCharsets.UTF_8);
+        monitoring.getNews(encodedKeyword, 1, 1, SortType.sim, llmResult);
     }
     public static String useLLM(String prompt) {
         String apiKey = System.getenv("GEMINI_API_KEY");
