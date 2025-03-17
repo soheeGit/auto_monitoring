@@ -18,29 +18,33 @@ public class App {
         String prompt = System.getenv("LLM_PROMPT");
         String llmResult = useLLM(prompt);
         System.out.println(llmResult);
-        String encodedKeyword = URLEncoder.encode("한국영화 " + llmResult, StandardCharsets.UTF_8);
-        monitoring.getNews("한국영화"+encodedKeyword, 1, 1, SortType.sim, llmResult);
+        //String encodedKeyword = URLEncoder.encode(llmResult, StandardCharsets.UTF_8);
+        monitoring.getNews(llmResult, 1, 1, SortType.sim, llmResult);
     }
     public static String useLLM(String prompt) {
-        String apiUrl = System.getenv("TOGETHER_URL");
-        String apiKey = System.getenv("TOGETHER_API_KEY");
-        String model = System.getenv("TOGETHER_MODEL");
+        String apiKey = System.getenv("GEMINI_API_KEY");
+        String model = System.getenv("GEMINI_MODEL");
+        String apiUrl = """
+            https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent?key=%s
+            """.formatted(model, apiKey);
         String payload = """
                 {
-                  "messages": [
+                  "contents": [
                     {
                       "role": "user",
-                      "content": "%s"
+                      "parts": [
+                        {
+                          "text": %s
+                        }
+                      ]
                     }
-                  ],
-                  "model": "%s"
+                  ]
                 }
                 """.formatted(prompt, model);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(apiUrl))
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer " + apiKey)
                 .POST(HttpRequest.BodyPublishers.ofString(payload))
                 .build();
         String contentTitle = null;
@@ -50,7 +54,7 @@ public class App {
             System.out.println("response.statusCode() = " + response.statusCode());
             System.out.println("response.body() = " + response.body());
             String responseBody = response.body();
-            contentTitle = responseBody.split("\"content\": \"")[1].split("\"")[0];
+            contentTitle = responseBody.split("\"text\": \"")[1].split("\"")[0];
             System.out.println("contentTitle = " + contentTitle);
 
         } catch (Exception e) {
@@ -79,7 +83,7 @@ class Monitoring {
         logger.info("Monitoring 객체 생성");
     }
 
-    // 1. 검색어를 통해서 최근 1개의 뉴스를 받아올게요
+    // 1. 검색어를 통해서 최근 5개의 뉴스를 받아올게요
     public void getNews(String keyword, int display, int start, SortType sort, String llmResult) {
         String token = System.getenv("GH_TOKEN");
         String OWNER = "soheeGit";
@@ -87,7 +91,7 @@ class Monitoring {
         String imageLink = "";
         try {
             String response = getDataFromAPI("news.json", keyword, display, start, sort, llmResult);
-            String[] tmp = response.split("title\":\"");
+            String[] tmp = response.split("text\":\"");
             // 0번째를 제외하곤 데이터
             String[] result = new String[display];
             for (int i = 1; i < tmp.length; i++) {
