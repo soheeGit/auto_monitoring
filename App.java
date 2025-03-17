@@ -24,9 +24,7 @@ public class App {
     public static String useLLM(String prompt) {
         String apiKey = System.getenv("GEMINI_API_KEY");
         String model = System.getenv("GEMINI_MODEL");
-        String apiUrl = """
-            https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent?key=%s
-            """.formatted(model, apiKey);
+        String apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent?key=%s".formatted(model, apiKey);
         String payload = """
                 {
                   "contents": [
