@@ -186,6 +186,7 @@ class Monitoring {
                     HttpResponse.BodyHandlers.ofString());
             logger.info(Integer.toString(response.statusCode()));
             logger.info(response.body());
+            System.out.println(response.body());
             return response.body();
         } catch (Exception e) {
             logger.severe(e.getMessage());
