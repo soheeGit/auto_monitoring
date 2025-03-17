@@ -32,7 +32,7 @@ public class App {
                       "role": "user",
                       "parts": [
                         {
-                          "text": %s
+                          "text": "%s"
                         }
                       ]
                     }
