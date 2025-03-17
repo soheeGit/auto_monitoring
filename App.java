@@ -89,7 +89,7 @@ class Monitoring {
         String imageLink = "";
         try {
             String response = getDataFromAPI("news.json", keyword, display, start, sort, llmResult);
-            String[] tmp = response.split("text\":\"");
+            String[] tmp = response.split("\"title\":\"");
             // 0번째를 제외하곤 데이터
             String[] result = new String[display];
             for (int i = 1; i < tmp.length; i++) {
