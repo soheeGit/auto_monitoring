@@ -38,7 +38,7 @@ public class App {
                     }
                   ]
                 }
-                """.formatted(prompt, model);
+                """.formatted(prompt);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(apiUrl))
